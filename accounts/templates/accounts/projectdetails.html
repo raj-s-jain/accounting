@@ -1,0 +1,50 @@
+{%extends 'base2.html' %}
+
+{%block content %}
+
+	<p>
+	<li>Project Name:     {{ project.project_name }}</li>
+	<li>Techonology Used: {{ project.tech_used }}</li>
+	<li>Time Spent:       {{ project.time_spent }}</li>
+	
+	<li>Cost Per Hour     {{ project.cost_per_hour }}</li>
+	
+	<li>Start Date:       {{ project.start_date }}</li>
+	<li>Total Cost        {{ totalcost }} </li>
+	
+
+
+	<li><a href="#time" data-toggle="modal">Edit Project</a></li>
+
+	<a href="/accounts/client/{{ client.id }}/project/{{ project.id }}/report/">Test</a>
+
+  	</p>
+  	<form method='POST'> {% csrf_token %}
+	  	<div class="modal fade" id="time">
+	    	<div class="modal-dialog">
+	    		<div class="modal-content">
+		    		<div class="modal-header">
+		    			<h4>Edit time spent</h4>
+		    			
+		    		</div>
+		    		
+		    		<div class="modal-body">
+		    			<p>{{form.as_p}}</p>
+
+		    		</div>
+		    		<div class="modal-footer">
+		    		<input type="submit">
+	    			</div>	
+	    		</div>
+	    	</div>
+	    </div>	
+	</form>
+
+
+	{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+{%extends 'project.html' %}
+
+{%block content %}
+<h1>Add project for {{ client.client_name }}</h1>
+  <form method='POST' action=''> {% csrf_token %}
+
+    {{ form.errors }}
+    {{ form.as_p }}
+    <li>{{test}}</li>
+    
+
+
+          
+
+
+    <input type='submit'>
+
+  </form>
+  {% endblock %}

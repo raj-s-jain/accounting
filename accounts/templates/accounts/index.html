@@ -1,0 +1,18 @@
+{%extends 'clients.html' %}
+
+{%block content %}
+
+	{% if client_list %}
+		<ul>
+		{% for client in client_list %}
+			<li><a href="{%url 'accounts:detail' client.id %}">{{ client.client_name }} </a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No client is existing. </p>
+	{% endif %}
+	<a href="{%url 'accounts:addclient' %}">
+	   <input type="button" value="addclient" />
+	</a>
+
+  {% endblock %}

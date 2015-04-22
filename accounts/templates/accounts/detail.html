@@ -1,0 +1,17 @@
+{%extends 'client.html' %}
+
+{%block content %}
+
+	<h1>{{ client.client_name }}</h1>
+	<ul>
+	{% for project in client.project_set.all %}
+		<a href="/accounts/client/{{ client.id }}/projectdetails/{{ project.id }}/">	
+		<li>{{ project.project_name }}</li>
+		</a>
+	{% endfor %}
+	</ul>
+	<a href="/accounts/client/{{ client.id }}/addproject">
+	   <input type="button" value="addproject" />
+	</a> 
+
+  {% endblock %}

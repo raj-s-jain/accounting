@@ -1,0 +1,39 @@
+{%extends 'reports.html' %}
+
+{%block content %}
+
+
+	<form method="POST"> {% csrf_token %}
+	<!--   From DateTime: <input type="datetime" id="fdate" placeholder="YYYY-MM-DD HH:MM:SS" size=30><br>
+	  To DateTime: <input type="datetime" id="todate" placeholder="YYYY-MM-DD HH:MM:SS" size=30><br> -->
+	  {{ form.as_p }}
+	  <input type="submit" value="Submit"> 
+
+
+	</form> 
+
+	
+	<ul>
+		
+	<li>{{test}}</li>
+	<li>{{from_date}}</li>
+	<li>{{to_date}}</li>
+	<li>totaltimespent= {{ totaltimespent }} </li>
+	<li>totalearned= {{totalearned }} </li>
+	<li>diffdays= {{ diff_days }}</li>
+	<li>earnperday= {{ earnperday }}</li>
+ 	<!-- {% for time in project.updatedtime_set.all %}
+		
+		<li>{{ time.last_updated }} : {{ time.time_spent }}</li>
+		</a>
+	{% endfor %} -->
+
+	{% for time in newtime %}
+		
+		<li>{{ time.last_updated }} : {{ time.time_spent }}</li>
+		</a>
+	{% endfor %}
+	</ul>
+	
+
+  {% endblock %}
